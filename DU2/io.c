@@ -11,6 +11,12 @@
 
 int read_word(char *s, int max, FILE *f)
 {
+    if (f == NULL)
+    {
+        fprintf(stderr, "Nepodarilo se otevrit soubor\n");
+        return EOF;
+    }
+
     int c, index = 0, length = 0;
     // proces nacitani
     while((c = fgetc(f)) != EOF)

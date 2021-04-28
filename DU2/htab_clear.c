@@ -22,4 +22,4 @@ void htab_clear(htab_t *t)
         t->size = 0;
     }
 }
-/* htab_clear */
+/* htab_clear.c */

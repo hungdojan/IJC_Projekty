@@ -13,7 +13,7 @@
 htab_t *htab_init(size_t n)
 {
     htab_t *table = malloc(sizeof(htab_t) + n * sizeof(htab_item_t *));
-    if (table)  // uspesne alokovani
+    if (table != NULL)  // uspesne alokovani
     {
         table->arr_size = n;
         table->size = 0;

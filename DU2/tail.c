@@ -168,11 +168,10 @@ void free_lines(char *lines)
 
 int main(int argc, char *argv[])
 {
-    int error_code = EXIT_SUCCESS;
-    char *lines = NULL;                 /** Pole retezcu */
-    int num_of_lines = DEFAULT_LINES;   /** Velikost pole retezcu */
-    int index = 0;                      /** Index v poli retezcu */
-    int plus_sign_toggle = 0;           /** Prepinac vypisu vsech radku krome prvnich X radku */
+    char *lines = NULL;                 /**< Pole retezcu */
+    int num_of_lines = DEFAULT_LINES;   /**< Velikost pole retezcu */
+    int index = 0;                      /**< Index v poli retezcu */
+    int plus_sign_toggle = 0;           /**< Prepinac vypisu vsech radku krome prvnich X radku */
     FILE *f = NULL;
 
     // nacitani argumentu
@@ -213,7 +212,7 @@ int main(int argc, char *argv[])
     if (!plus_sign_toggle)
     {
         lines = malloc_lines(num_of_lines, MAX_LEN);
-        if (error_code)     { goto error_memory; }
+        if (lines == NULL)     { goto error_memory; }
     }
 
     // prace s daty

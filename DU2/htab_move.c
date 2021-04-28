@@ -4,7 +4,7 @@
  * Autor: Hung Do, FIT VUT
  * Prelozeno: gcc 9.3
  *
- * Modul s deklaraci htab_mvoe funkci
+ * Modul s deklaraci htab_move funkci
  */
 #include "htab.h"
 #include "htab_private.h"
@@ -18,7 +18,7 @@
 static htab_item_t *get_last(htab_item_t *line)
 {
     htab_item_t *ret_item = NULL;
-    if (line)
+    if (line != NULL)
     {
         // pruchod vetvi
         for (ret_item = line; ret_item->next; ret_item = ret_item->next)
@@ -30,12 +30,12 @@ static htab_item_t *get_last(htab_item_t *line)
 htab_t *htab_move(size_t n, htab_t *from)
 {
     htab_t *to = htab_init(n);
-    if (to)
+    if (to != NULL)
     {
         to->size = from->size;
         for (size_t i = 0; i < from->arr_size; i++)
         {
-            while (from->ptr[i])
+            while (from->ptr[i] != NULL)
             {
                 // zaznam, ktery se ma presunout
                 htab_item_t *item   = from->ptr[i];
@@ -47,13 +47,13 @@ htab_t *htab_move(size_t n, htab_t *from)
 
                 // zaznam, za ktery se ma zaznam pripojit
                 htab_item_t *last_item = get_last(to->ptr[index]);
-                if (!last_item) // pokud se jedna o prvni prvek
+                if (last_item == NULL) // pokud se jedna o prvni prvek
                     to->ptr[index]  = item;
                 else
                     last_item->next = item;
             } // while(from->ptr[i])
         } // for (size_t i = 0; ... )
-    } // if (to != NULL)
+    } // if (to)
     return to;
 }
 /* htab_move.c */

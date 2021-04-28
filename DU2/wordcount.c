@@ -12,10 +12,11 @@
 #include "io.h"
 
 #define LIMIT 128
-#define N_OF_PTR 65599 //256
+#define N_OF_PTR 1031 // jedna se o prvocislo
 
 #ifdef HASHTEST
 // hash funkce typu djb2
+// zdroj: http://www.cse.yorku.ca/~oz/hash.html
 size_t htab_hash_function(htab_key_t str)
 {
     unsigned long hash = 5381;
@@ -28,6 +29,7 @@ size_t htab_hash_function(htab_key_t str)
 }
 #endif
 
+// VYpise obsah dvojice
 void print_data(htab_pair_t *data)
 {
     printf("%s\t%d\n", data->key, data->value);
@@ -35,6 +37,7 @@ void print_data(htab_pair_t *data)
 
 int main()
 {
+    // inicializace tabulky
     htab_t *table = htab_init(N_OF_PTR);
     if (table == NULL)  { goto htab_alloc_error; }
 

@@ -18,7 +18,7 @@ htab_pair_t *htab_lookup_add(htab_t *t, htab_key_t key)
     htab_pair_t *pair = NULL;           // navratova dvojice
     
     // vetev je prazdna
-    if (!item)
+    if (item == NULL)
     {
         t->ptr[index] = htab_item_init(key);
         if (t->ptr[index] == NULL)      // nepodarilo se alokovat zaznam

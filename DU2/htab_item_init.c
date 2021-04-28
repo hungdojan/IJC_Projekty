@@ -15,7 +15,7 @@ htab_item_t *htab_item_init(htab_key_t key)
     htab_item_t *item = malloc(sizeof(htab_item_t));    // alokovany zaznam
     htab_pair_t *pair;                                  // alokovana dvojice
     char *string;                                       // alokovany retezec obsahujici klic
-    if (item)   // uspesna alokace
+    if (item != NULL)   // uspesna alokace
     {
         pair = malloc(sizeof(htab_pair_t));
         if (pair == NULL)   { goto pair_alloc_fail; }

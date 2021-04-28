@@ -12,7 +12,7 @@
 
 htab_item_t *htab_item_free(htab_item_t *item)
 {
-    if (!item)
+    if (item == NULL)
         return NULL;
 
     // uklada si ukazatel na dalsi zaznam, ktery vraci
